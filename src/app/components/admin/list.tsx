@@ -14,7 +14,6 @@ const BlogList = () => {
   const [newTitle, setNewTitle] = useState<string>("");
   const [newContent, setNewContent] = useState<string>("");
 
-  // Fetch blogs from Firestore
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
@@ -28,7 +27,6 @@ const BlogList = () => {
     fetchBlogs();
   }, []);
 
-  // Handle deleting a blog post
   const handleDelete = async (id: string) => {
     try {
       await deleteDoc(doc(db, "blogs", id));
@@ -38,13 +36,11 @@ const BlogList = () => {
     }
   };
 
-  // Handle editing a blog post
   const handleEdit = async (id: string, updatedData: { title: string, content: string }) => {
     try {
       const blogRef = doc(db, "blogs", id);
       await updateDoc(blogRef, updatedData);
 
-      // Update local state to reflect changes
       setBlogs(blogs.map((blog) =>
         blog.id === id ? { ...blog, ...updatedData } : blog
       ));
@@ -58,21 +54,18 @@ const BlogList = () => {
     }
   };
 
-  // Handle opening the edit form
   const handleEditClick = (blog: Blog) => {
     setEditingId(blog.id);
     setNewTitle(blog.title);
     setNewContent(blog.content);
   };
 
-  // Handle canceling the edit
   const handleCancelEdit = () => {
     setEditingId(null);
     setNewTitle("");
     setNewContent("");
   };
 
-  // Handle form submission for editing
   const handleSubmitEdit = (e: React.FormEvent) => {
     e.preventDefault();
     if (editingId) {
@@ -117,7 +110,6 @@ const BlogList = () => {
               </div>
             </form>
           ) : (
-            // Display blog post
             <>
               <h3 className="text-xl font-bold">{blog.title}</h3>
               <p>{blog.content}</p>
