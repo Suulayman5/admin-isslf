@@ -3,13 +3,13 @@ import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyBpDB8jA3ekeBKROLkMbq1Kcw7RGWoRYDI",
-    authDomain: "task-1bc29.firebaseapp.com",
-    projectId: "task-1bc29",
-    storageBucket: "task-1bc29.firebasestorage.app",
-    messagingSenderId: "1008130769868",
-    appId: "1:1008130769868:web:424ef9bd4d6880d8241369",
-    measurementId: "G-TTW152FBRK"
+    apiKey: process.env.API_KEY,
+    authDomain: process.env.AUTH_DOMAIN,
+    projectId: process.env.PROJECT_ID,
+    storageBucket: process.env.STORAGE_BUCKET,
+    messagingSenderId: process.env.MESSAGING_SENDER_ID,
+    appId: process.env.APP_ID,
+    measurementId: process.env.MEASUREMENT_ID
   };
   
   
