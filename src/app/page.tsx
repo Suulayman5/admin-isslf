@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { db } from "@/app/firebase/config";
 import { collection, getDocs } from "firebase/firestore";
+import Link from "next/link";
 
 interface Blog {
   title: string;
@@ -23,7 +24,12 @@ const Home: React.FC = () => {
 
   return (
     <div className="p-4">
-      <h1 className="text-2xl font-bold mb-4">Blog Posts</h1>
+      <div className="flex justify-between">
+        <h1 className="text-2xl font-bold mb-4">Blog Posts</h1>
+        <Link href="/login" className="cursor-pointer">
+          Sign In
+        </Link>
+      </div>
       <ul className="space-y-4">
         {blogs.map((blog, index) => (
           <li key={index} className="p-4 border rounded">

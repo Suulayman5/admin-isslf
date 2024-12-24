@@ -3,8 +3,7 @@
 import { auth } from "../firebase/config";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { useState, FormEvent } from "react";
-import { useRouter } from "next/navigation"; // Use 'next/navigation' for Next.js 13+ app directory
-import BlogForm from "../components/admin/form";
+import { useRouter } from "next/navigation"; 
 
 const Login = () => {
   const [email, setEmail] = useState<string>("");
@@ -45,7 +44,6 @@ const Login = () => {
           Login
         </button>
       </form>
-      <BlogForm/>
     </div>
   );
 };

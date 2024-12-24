@@ -2,11 +2,11 @@
 
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../firebase/config";
-import { useRouter } from "next/navigation"; // Use 'next/navigation' for Next.js 13+ app directory
+import { useRouter } from "next/navigation"; 
 import BlogForm from "../components/admin/form";
 import BlogList from "../components/admin/list";
 
-const Admin: React.FC = () => {
+const Admin = () => {
   const [user, loading] = useAuthState(auth);
   const router = useRouter();
 
